@@ -3,6 +3,7 @@ package keyone.keytwo.homework8v2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,14 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdapter.MyViewHolder> {
 
-    private String[] dataSource;
+    private CardSource dataSource;
     private MyOnClickListener listener;
 
-    public SocialNetworkAdapter(String[] dataSource) {
+    public SocialNetworkAdapter(CardSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public void setData(String[] dataSource) {
+    public void setData(CardSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -27,31 +28,39 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.textView.setText(dataSource[position]);
+        holder.title.setText(dataSource.getCardData(position).getTitle());
+        holder.description.setText(dataSource.getCardData(position).getDescription());
+        holder.imageView.setImageResource(dataSource.getCardData(position).getPicture());
+        holder.like.setChecked(dataSource.getCardData(position).isLike());
     }
 
     @Override
     public int getItemCount() {
-        return dataSource.length;
+        return dataSource.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        TextView title;
+        TextView description;
         ImageView imageView;
+        CheckBox like;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.textView);
+            title = itemView.findViewById(R.id.title);
+            description = itemView.findViewById(R.id.description);
             imageView = itemView.findViewById(R.id.imageView);
+            like = itemView.findViewById(R.id.like);
 
-            textView.setOnClickListener(new View.OnClickListener() {
+            imageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onMyClick(v, getAdapterPosition());

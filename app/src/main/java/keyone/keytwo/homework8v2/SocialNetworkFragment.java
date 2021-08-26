@@ -21,7 +21,8 @@ public class SocialNetworkFragment extends Fragment implements MyOnClickListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_social_network, container, false);
-        String[] data = getResources().getStringArray(test_title);
+        //String[] data = getResources().getStringArray(test_title);
+        CardSource data = new CardSourceImpl(getResources()).init();
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
