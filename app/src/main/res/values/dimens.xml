@@ -3,4 +3,5 @@
     <dimen name="text_size">30sp</dimen>
     <dimen name="padding">16dp</dimen>
     <dimen name="image_height">200dp</dimen>
+    <dimen name="text_size_desc">20dp</dimen>
 </resources>
