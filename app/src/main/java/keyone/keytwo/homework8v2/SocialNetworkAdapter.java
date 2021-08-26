@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdapter.MyViewHolder> {
 
     private String[] dataSource;
+    private MyOnClickListener listener;
 
     public SocialNetworkAdapter(String[] dataSource) {
         this.dataSource = dataSource;
@@ -18,6 +19,10 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
 
     public void setData(String[] dataSource) {
         this.dataSource = dataSource;
+    }
+
+    public void setMyOnClickListener(MyOnClickListener listener){
+        this.listener = listener;
     }
 
     @Override
@@ -45,6 +50,13 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
             super(itemView);
             textView = itemView.findViewById(R.id.textView);
             imageView = itemView.findViewById(R.id.imageView);
+
+            textView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onMyClick(v, getAdapterPosition());
+                }
+            });
         }
     }
 }
