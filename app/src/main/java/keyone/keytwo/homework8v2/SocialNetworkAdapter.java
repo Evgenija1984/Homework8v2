@@ -3,9 +3,9 @@ package keyone.keytwo.homework8v2;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +51,7 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
         TextView title;
         TextView description;
         ImageView imageView;
-        CheckBox like;
+        ToggleButton like;
 
         public MyViewHolder(View itemView) {
             super(itemView);

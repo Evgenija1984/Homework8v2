@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -33,6 +34,10 @@ public class SocialNetworkFragment extends Fragment implements MyOnClickListener
         SocialNetworkAdapter socialNetworkAdapter = new SocialNetworkAdapter(data);
         socialNetworkAdapter.setMyOnClickListener(this);
         recyclerView.setAdapter(socialNetworkAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
+        dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.separator));
+        recyclerView.addItemDecoration(dividerItemDecoration);
         return view;
     }
 

@@ -25,10 +25,18 @@
             android:layout_weight="1"
             android:orientation="horizontal">
 
-            <CheckBox
+            <!-- <CheckBox
+                 android:id="@+id/like"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" /> -->
+            <ToggleButton
                 android:id="@+id/like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_width="@dimen/like_size"
+                android:layout_height="40dp"
+                android:background="@drawable/button_background"
+                android:text=""
+                android:textOff=""
+                android:textOn="" />
 
             <TextView
                 android:id="@+id/title"
