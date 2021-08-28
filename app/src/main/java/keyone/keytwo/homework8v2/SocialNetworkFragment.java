@@ -35,9 +35,9 @@ public class SocialNetworkFragment extends Fragment implements MyOnClickListener
         socialNetworkAdapter.setMyOnClickListener(this);
         recyclerView.setAdapter(socialNetworkAdapter);
 
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
+        /*DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), LinearLayoutManager.VERTICAL);
         dividerItemDecoration.setDrawable(getResources().getDrawable(R.drawable.separator));
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        recyclerView.addItemDecoration(dividerItemDecoration);*/
         return view;
     }
 

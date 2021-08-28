@@ -22,14 +22,28 @@ public class SocialNetworkAdapter extends RecyclerView.Adapter<SocialNetworkAdap
         this.dataSource = dataSource;
     }
 
-    public void setMyOnClickListener(MyOnClickListener listener){
+    public void setMyOnClickListener(MyOnClickListener listener) {
         this.listener = listener;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position == dataSource.size()-1) {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 //        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item, parent, false);
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view, parent, false);
+        View view;
+        if (viewType == 1) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view_end, parent, false);
+        } else {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view, parent, false);
+        }
         return new MyViewHolder(view);
     }
 
